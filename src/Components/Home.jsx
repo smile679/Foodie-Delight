@@ -8,7 +8,7 @@ import Reveal from "./Reveal";
 
 const Home =()=>{
  const [food, setFood] = useState([]);
- const [query, setQuery] = useState("pasta");
+ const [query, setQuery] = useState("chicken");
  const [error, setError] = useState('')
  const [isLoading, setIsLoading] = useState(false);
  

@@ -12,8 +12,7 @@
 
 ## 🚀 Live Demo
 
-[👉 View Live](https://your-live-demo-link.com)  
-_(Replace with your Netlify or Vercel link)_
+[👉 View Live](https://foodiedelightapp.netlify.app/)
 
 ## 🛠️ Tech Stack
 
@@ -25,5 +24,8 @@ _(Replace with your Netlify or Vercel link)_
 ## 📷 Screenshots
 
 ![Home Page](./screenshots/home.jpg)  
-![Recipe Detail](./screenshots/Detailed.jpg)  
-![Recipe Detail](./screenshots/cards.jpg)  
+![Recipe Detail](./screenshots/Detailed.jpg)
+![Recipe cards](./screenshots/cards.jpg)
+![Recipe recipe](./screenshots/recipeImage.jpg)
+![Recipe ingredientist](./screenshots/ingredientList.jpg)
+![Recipe instractions](./screenshots/instractions.jpg)
