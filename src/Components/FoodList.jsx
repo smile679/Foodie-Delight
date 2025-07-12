@@ -1,6 +1,9 @@
-import MovieCard from "./MovieCard";
+import FoodCard from "./FoodCard";
+// import { useState } from "react";
 
-const MovieList = ({ food, isLoading, error }) =>{
+const FoodList = ({ food, isLoading, error }) =>{
+
+  // let [foodArr, setFoodArr] = useState([]);
 
   return <section className="flex items-center flex-col my-10 mx-5 lg:mx-10">
     <div>
@@ -10,7 +13,7 @@ const MovieList = ({ food, isLoading, error }) =>{
       </div> : error ? <p className="text-red-600 font-semibold"> {error}</p> :
           <div className="w-full h-auto grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-5 lg:gap-10">
             {food.map((foods)=>{
-              return <MovieCard key={foods.title} foods={foods} />
+              return <FoodCard key={foods.title} foods={foods}/>
             })}
            </div>
       }
@@ -18,4 +21,4 @@ const MovieList = ({ food, isLoading, error }) =>{
   </section>
 }
 
-export default MovieList;
+export default FoodList;

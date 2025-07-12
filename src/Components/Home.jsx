@@ -2,8 +2,8 @@ import { useEffect, useState} from "react";
 import { useDebounce } from 'use-debounce';
 import Header from "./Header";
 import Search from "./Search";
-import MovieList from "./MovieList";
 import Reveal from "./Reveal";
+import FoodList from "./FoodList";
 
 
 const Home =()=>{
@@ -50,7 +50,7 @@ const Home =()=>{
     <Reveal>
       <Search query={query} setQuery={setQuery}/>
     </Reveal>
-    <MovieList food={food} isLoading={isLoading} error={error}/>
+    <FoodList food={food} isLoading={isLoading} error={error}/>
   </div>
 }
 

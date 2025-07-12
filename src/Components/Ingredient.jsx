@@ -23,7 +23,7 @@ const Ingredient = () => {
         const res = await fetch(`${URL}?apiKey=${API_KEY}`);
         const data = await res.json();
         setIngredient(data)
-        console.log(data)
+        // console.log(data)
       } catch(err){
         console.error(err);
         setError('No results found.');
@@ -51,6 +51,7 @@ const Ingredient = () => {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <p className="text-green-500 text-xl sm:text-2xl font-semibold ml-1">Minute: {ingredient.readyInMinutes}</p>
             <p className="text-green-500 text-xl sm:text-2xl font-semibold ml-1">Servse: {ingredient.servings}</p>
+            {ingredient.pricePerServing? <p className="text-green-500 text-xl sm:text-2xl font-semibold ml-1">Price: {(ingredient.pricePerServing/10).toFixed(1)}$</p>: ""}
             {ingredient.vegan? <p className="text-green-500 text-xl sm:text-2xl font-semibold ml-1">Vegan</p>: ""}
             {ingredient.vegetarian ? <p className="text-green-500 text-xl sm:text-2xl font-semibold ml-1">vegetarian</p>: ""}
           </div>
@@ -74,7 +75,7 @@ const Ingredient = () => {
           </h2>
         </Reveal>
         <div className=" text-xl text-orange-900 font-semibold text-start">
-          <ol>
+          <ol key={Ingredient.name}>
             {ingredient.analyzedInstructions.map((items)=>
               items.steps.map((item)=>{
                 let Equipment = '';
@@ -85,10 +86,10 @@ const Ingredient = () => {
                 item.ingredients.map((ingre)=>(Ingredient = ingre))
                   
                 return <Reveal>
-                  <li className="text-shadow-orange-500/50 text-shadow-md">
+                  <li className="text-shadow-orange-500/50 text-shadow-md" >
                   {item.step}
                   <div  className="flex items-center my-5">
-                 { Equipment.image?  <img src={Equipment.image} alt={Equipment.name}  className="w-30 h-20 rounded-3xl object-contain mr-10"/>: ''} 
+                 { Equipment.image?  <img src={Equipment.image} alt={Equipment.name} className="w-30 h-20 rounded-3xl object-contain mr-10" />: ''} 
                  { Ingredient.image? <img src={`${IMAGE_URL}/${Ingredient.image}`} alt={Ingredient.name} className="w-30 h-20 rounded-3xl object-contain"/> : ''}
                   </div>
                 </li>
