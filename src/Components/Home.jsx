@@ -1,9 +1,9 @@
 import { useEffect, useState} from "react";
 import { useDebounce } from 'use-debounce';
-import Header from "./Header";
 import Search from "./Search";
 import Reveal from "./Reveal";
 import FoodList from "./FoodList";
+import Hero from "./Hero";
 
 
 const Home =()=>{
@@ -43,10 +43,8 @@ const Home =()=>{
       fetchData();
    },[ debauncedQuery ])
 
-  return <div className="w-full flex items-center flex-col">
-    <Reveal>
-      <Header/>
-    </Reveal>
+  return <div className="max-w-6xl m-auto flex items-center flex-col">
+    <Hero/>
     <Reveal>
       <Search query={query} setQuery={setQuery}/>
     </Reveal>

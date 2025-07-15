@@ -1,21 +1,25 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from "./Components/Home"
+import Header from "./Components/Header"
 import Ingredient from "./Components/Ingredient";
+import { UserProvider } from './Context/Context';
+import Cart from './Cart/Cart';
 
 function App() {
 
   return (
-    <BrowserRouter>
-      <main className="max-w-7xl m-auto relative flex justify-center items-center flex-col">
-      <div className='w-full fixed top-0 left-0 z-10 bg-green-500 py-3 shadow-green-800 shadow-xl'>
-        <h2 className='ml-5 text-center text-shadow-green-800 text-shadow-lg'>Foodie Delight</h2>
-      </div>
+    <UserProvider>
+      <BrowserRouter>
+      <main className="relative flex justify-center items-center flex-col">
+        <Header/>
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/ingredient/:id" element={ <Ingredient/>} />
+          <Route path="/cart" element={ <Cart /> }/>
         </Routes>
       </main>
       </BrowserRouter>
+    </UserProvider>
   )
 }
 

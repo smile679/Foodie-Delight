@@ -1,9 +1,7 @@
 import FoodCard from "./FoodCard";
-// import { useState } from "react";
 
 const FoodList = ({ food, isLoading, error }) =>{
 
-  // let [foodArr, setFoodArr] = useState([]);
 
   return <section className="flex items-center flex-col my-10 mx-5 lg:mx-10">
     <div>
