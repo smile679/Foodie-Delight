@@ -40,7 +40,7 @@ const Cart = ()=>{
   useEffect(()=>{
     fetchCart();
     console.log(cart)
-  },[()=>cart.map(idd=>idd.id)])
+  },[cart])
 
 // i want to call the use effect when the cart arrays id changes
 
