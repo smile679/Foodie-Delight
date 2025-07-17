@@ -74,15 +74,16 @@ const Cart = ()=>{
     { isLoading ? <div className= "flex justify-center items-center">
       <div className="w-8 h-8 sm:w-12 sm:h-12 border-4 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
       <p className="text-orange-500 text-xl sm:text-2xl font-semibold ml-1"> Loading..</p>
-      </div> : error ? <p className="text-red-600 font-semibold"> {error}</p> :
+      </div> : error ? <p className="text-orange-600 font-semibold"> {error}</p> :
     <div className="max-w-6xl mx-auto flex flex-col justify-center items-center px-5">
-      <h2 className="text-orange-950 my-10">Checkout page</h2>
+      <h2 className="text-orange-950 my-10 text-shadow-gray-500 text-shadow-lg">Checkout page</h2>
+
         <div className="w-full flex max-sm:flex-col justify-evenly items-center gap-5">
           <div className="max-w-sm md:w-md flex flex-col">
              {food.map((item)=>( <CartItem key={item.id} item={item}/>))}
           </div>
 
-      <div className="max-w-sm flex flex-col justify-center bg-orange-200 border-b-1 border-dashed shadow-lg shadow-orange-950 rounded-lg">
+      <div className="max-w-sm flex flex-col justify-center bg-orange-200 shadow-lg shadow-orange-950 rounded-lg">
         <div className="w-full py-5 border-b-1 border-dashed">
           <h3 className="flex items-center flex-col text-2xl font-bold text-orange-950 italic">
           Reciept
@@ -97,11 +98,12 @@ const Cart = ()=>{
             <p className="text-sm text-orange-950 italic">Price :</p>
             <p className="text-sm text-orange-950 italic">{price.toFixed(2)} $</p>
         </div>
-          <div className="flex justify-between px-2 py-3 border-b-1 border-dashed">
+          <div className="flex justify-between px-2 py-3 border-t-1 border-dashed">
             <p className="text-sm text-orange-950 italic">Tottal price :</p>
             <p className="text-sm text-orange-950 italic">{totalPrice} $</p>
         </div>
-        <button className="w-full bg-orange-500 py-2 text-orange-950 font-bold"
+        <button className="w-full bg-orange-500 py-2 text-orange-950 font-bold rounded-b-lg hover:rounded-md hover:bg-orange-600 hover:scale-105
+         transition-all duration-150"
           onClick={()=>alert('soon will be available!')}
         >Go To Payment</button>
       </div>

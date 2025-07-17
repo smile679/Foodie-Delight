@@ -1,22 +1,13 @@
-import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../Context/Context';
 
 const Header = ()=>{
-  // const [ count, setCount ] = useState();
   const { cart } = useUserContext();
   const navigate = useNavigate()
     
   function enterCart(){
-     navigate('./cart')
+     navigate('/cart')
   }
-  // useEffect(()=>(
-  //   localStorage.setItem
-  // ))
-
-  // useEffect(()=>{
-  //  setCount(cart.length)
-  // },[cart])
 
   return <header className='w-full fixed top-0 left-0 z-100 bg-orange-500 py-2 shadow-orange-800 shadow-xl'>
           <div className='max-w-6xl mx-auto flex justify-between'>
