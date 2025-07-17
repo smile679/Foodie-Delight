@@ -95,7 +95,7 @@ const Cart = ()=>{
           </div>
           <div className="flex justify-between px-2 py-3">
             <p className="text-sm text-orange-950 italic">Price :</p>
-            <p className="text-sm text-orange-950 italic">{price} $</p>
+            <p className="text-sm text-orange-950 italic">{price.toFixed(2)} $</p>
         </div>
           <div className="flex justify-between px-2 py-3 border-b-1 border-dashed">
             <p className="text-sm text-orange-950 italic">Tottal price :</p>
