@@ -49,7 +49,8 @@ const FoodCard =({ foods})=>{
       <div className="w-full flex justify-between flex-col items-center py-3">
         <p className="text-gray-500 leading-6">{foods.title}</p>
         <button className="button px-12" onClick={()=>{ handleClick(foods.id)}}>Cook Now</button>
-        <div className="relative flex justify-center items-center bg-orange-500 py-1 px-3 mt-2 rounded-lg text-white font-semibold">
+        <div className="relative flex justify-center items-center bg-orange-500 py-1 px-3 mt-2 rounded-lg text-white font-semibold hover:drop-shadow-orange-800 hover:drop-shadow-lg
+         hover:scale-105 transition-all duration-200">
           <button className="flex flex-col" onClick={()=>(addItem(foods))}>Order food
           <span className="text-[10px]">Add to cart</span></button>
           { added ? <svg className="w-8 h-8 text-orange-500 absolute bottom-3 -right-8" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
