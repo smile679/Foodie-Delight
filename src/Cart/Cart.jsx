@@ -2,6 +2,7 @@ import { useEffect, useState, useMemo } from "react";
 import { useUserContext } from "../Context/Context";
 import CartItem from "./CartItem";
 import Receipt from "./Receipt";
+import Payment from "./Payment";
 
 
 const Cart = ()=>{
@@ -78,16 +79,17 @@ const Cart = ()=>{
     <div className="max-w-6xl mx-auto flex flex-col justify-center items-center px-5">
       <h2 className="text-orange-950 my-10 text-shadow-gray-500 text-shadow-lg">Checkout page</h2>
 
-        <div className="w-full flex max-sm:flex-col justify-evenly items-center gap-5">
-          <div className="max-w-sm md:w-md flex flex-col">
+        <div className="w-full flex max-md:flex-col justify-between max-md:items-center gap-5">
+          <div className="w-full sm:w-lg flex flex-col">
              {food.map((item)=>( <CartItem key={item.id} item={item}/>))}
           </div>
 
-      <div className="max-w-sm flex flex-col justify-center bg-orange-200 shadow-lg shadow-orange-950 rounded-lg">
+      <div className="w-full sm:w-lg flex flex-col">
+        <div className="w-full flex flex-col justify-center bg-orange-100 shadow-lg shadow-orange-800 rounded-lg">
         <div className="w-full py-5 border-b-1 border-dashed">
           <h3 className="flex items-center flex-col text-2xl font-bold text-orange-950 italic">
-          Reciept
-          <span className="text-xl">Foodie Delight</span></h3>
+          Order Summary
+          <span className="text-lg">Foodie Delight</span></h3>
         </div>
           {food.map((items)=>( <Receipt key={items.id} items={items} />))}
         <div className="flex justify-between px-2 py-3">
@@ -98,14 +100,15 @@ const Cart = ()=>{
             <p className="text-sm text-orange-950 italic">Price :</p>
             <p className="text-sm text-orange-950 italic">{price.toFixed(2)} $</p>
         </div>
-          <div className="flex justify-between px-2 py-3 border-t-1 border-dashed">
+          <div className="flex justify-between px-2 py-3 mb-5 border-t-1 border-dashed">
             <p className="text-sm text-orange-950 italic">Tottal price :</p>
             <p className="text-sm text-orange-950 italic">{totalPrice} $</p>
         </div>
-        <button className="w-full bg-orange-500 py-2 text-orange-950 font-bold rounded-b-lg hover:rounded-md hover:bg-orange-600 hover:scale-105
-         transition-all duration-150"
-          onClick={()=>alert('soon will be available!')}
-        >Go To Payment</button>
+          <p className="text-sm italic text-orange-950 self-center">{new Date().toLocaleString()}</p>
+      </div>
+        <div className="w-full my-10 flex flex-col items-center">
+          <Payment totalPrice={totalPrice}/>
+        </div>
       </div>
         </div>
     </div> 

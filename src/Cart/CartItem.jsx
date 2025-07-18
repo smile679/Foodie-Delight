@@ -34,7 +34,7 @@ const CartItem =({ item})=>{
   },[cart])
  
    
-  return <div className="relative flex h-32 md:h-28 p-2 mb-5 rounded-lg shadow-gray-600 shadow-lg">
+  return <div className="relative flex h-32 md:h-28 p-2 mb-5 rounded-lg shadow-orange-800 shadow-lg">
        <img src={item.image} alt={item.title} className="w-24 text-sm object-cover rounded-lg"/>
        <div className="px-6">
           <h3 className="text-sm font-bold text-orange-950 leading-4 text-pretty">{item.title}</h3>
