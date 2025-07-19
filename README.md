@@ -34,58 +34,29 @@
 - **Spoonacular API** – Meal and recipe data
 - **Local Storage** – Persist cart items across reloads
 
-## 📂 Project Structure
-
-```bash
-src/
-├── Cart/
-|   ├── Cart.jsx
-│   ├── CartItem.jsx
-│   ├── Payment.jsx
-│   ├── Receipt.jsx
-│   └── ...
-├── components/
-│   ├── FoodCard.jsx
-│   ├── FoodList.jsx
-│   ├── Header.jsx
-│   ├── Hero.jsx
-│   ├── Home.jsx
-│   ├── Ingradient.jsx
-│   ├── IngradientCart.jsx
-│   ├── Reveal.jsx
-│   ├── Search.jsx
-│   └── ...
-├── Context/
-│   ├── Context.jsx
-│   └── ...
-├── Images/
-│   └── ...
-├── App.jsx
-└── main.jsx
-
 
 ## 📷 Screenshots
 
 ### 🏠 Home Page
-![Home Page](screenshots/foodiehome2.png)
+![Home Page](./screenshots/foodiehome2.png)
 
 ### 📋 Recipe Details
-![Recipe Detail](screenshots/foodie2.png)
+![Recipe Detail](./screenshots/foodie2.png)
 
 ### 🧾 Recipe Cards
-![Recipe cards](screenshots/foodiecards.png)
+![Recipe cards](./screenshots/foodiecards.png)
 
 ### 🧂 Ingredients View
-![Recipe ingredient list](screenshots/foodieingredient.png)
+![Recipe ingredient list](./screenshots/foodieingredient.png)
 
 ### 📦 Ingredient Card
-![Recipe ingredient card](screenshots/foodieingredientcard.png)
+![Recipe ingredient card](./screenshots/foodieingredientcard.png)
 
 ### 🔢 Ordered Ingredient List
-![Ordered ingredients](screenshots/foodieingredient3.jpg)
+![Ordered ingredients](./screenshots/foodieingredient3.jpg)
 
 ### 🛒 Cart Page
-![Cart Page](screenshots/foodiecart.png)
+![Cart Page](./screenshots/foodiecart.png)
 
 ### 💳 Payment Page
-![Payment Page](screenshots/foodiecart2.png)
+![Payment Page](./screenshots/foodiecart2.png)
