@@ -79,13 +79,13 @@ src/
 ![Recipe ingredient list](screenshots/foodieingredient.png)
 
 ### 📦 Ingredient Card
-![Recipe ingredient card](screenshots/foodieingredientCard.png)
+![Recipe ingredient card](screenshots/foodieingredientcard.png)
 
 ### 🔢 Ordered Ingredient List
 ![Ordered ingredients](screenshots/foodieingredient3.jpg)
 
 ### 🛒 Cart Page
-![Cart Page](screenshots/foodiecart.png)
+![Cart Page]('screenshots/foodiecart.png')
 
 ### 💳 Payment Page
 ![Payment Page](screenshots/foodiecart2.png)
