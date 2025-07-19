@@ -86,7 +86,7 @@ const Ingredient = () => {
                 item.ingredients.map((ingre)=>(Ingredient = ingre))
                   
                 return <Reveal>
-                  <li className="text-shadow-orange-500/50 text-shadow-md" >
+                  <li>
                   {item.step}
                   <div  className="flex items-center my-5">
                  { Equipment.image?  <img src={Equipment.image} alt={Equipment.name} className="w-30 h-20 rounded-3xl object-contain mr-10" />: ''} 
