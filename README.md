@@ -67,25 +67,25 @@ src/
 ## 📷 Screenshots
 
 ### 🏠 Home Page
-![Home Page](./screenshots/foodieHome2.png)
+![Home Page](./screenshots/foodiehome2.png)
 
 ### 📋 Recipe Details
 ![Recipe Detail](./screenshots/foodie2.png)
 
 ### 🧾 Recipe Cards
-![Recipe cards](./screenshots/foodieCards.png)
+![Recipe cards](./screenshots/foodiecards.png)
 
 ### 🧂 Ingredients View
-![Recipe ingredient list](./screenshots/foodieIngradient.png)
+![Recipe ingredient list](./screenshots/foodieingredient.png)
 
 ### 📦 Ingredient Card
-![Recipe ingredient card](./screenshots/foodieIngradientCard.png)
+![Recipe ingredient card](./screenshots/foodieingredientCard.png)
 
 ### 🔢 Ordered Ingredient List
-![Ordered ingredients](./screenshots/foodieIngradient3.jpg)
+![Ordered ingredients](./screenshots/foodieingredient3.jpg)
 
 ### 🛒 Cart Page
-![Cart Page](./screenshots/foodieCart.png)
+![Cart Page](./screenshots/foodiecart.png)
 
 ### 💳 Payment Page
 ![Payment Page](./screenshots/foodiecart2.png)
