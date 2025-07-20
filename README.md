@@ -34,35 +34,33 @@
 - **Spoonacular API** – Meal and recipe data
 - **Local Storage** – Persist cart items across reloads
 
-## 📂 Project Structure
-
-src/
-├── Cart/
-│   ├── Cart.jsx
-│   ├── CartItem.jsx
-│   ├── Payment.jsx
-│   ├── Receipt.jsx
+```bash
+📦 src
+├── 📂 Cart
+│   ├── 🟨 Cart.jsx
+│   ├── 🟨 CartItem.jsx
+│   ├── 🟨 Payment.jsx
+│   ├── 🟨 Receipt.jsx
 │   └── ...
-├── components/
-│   ├── FoodCard.jsx
-│   ├── FoodList.jsx
-│   ├── Header.jsx
-│   ├── Hero.jsx
-│   ├── Home.jsx
-│   ├── Ingradient.jsx
-│   ├── IngradientCart.jsx
-│   ├── Reveal.jsx
-│   ├── Search.jsx
+├── 📂 components
+│   ├── 🟨 FoodCard.jsx
+│   ├── 🟨 FoodList.jsx
+│   ├── 🟨 Header.jsx
+│   ├── 🟨 Hero.jsx
+│   ├── 🟨 Home.jsx
+│   ├── 🟨 Ingradient.jsx
+│   ├── 🟨 IngradientCart.jsx
+│   ├── 🟨 Reveal.jsx
+│   ├── 🟨 Search.jsx
 │   └── ...
-├── Context/
-│   ├── Context.jsx
+├── 📂 Context
+│   ├── 🟨 Context.jsx
 │   └── ...
-├── Images/
+├── 📂 Images
 │   └── ...
-├── App.jsx
-└── main.jsx
-
-
+├── 🟩 App.jsx
+└── 🟩 main.jsx
+```
 ## 📷 Screenshots
 
 ### 🏠 Home Page
