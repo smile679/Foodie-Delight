@@ -23,7 +23,7 @@
 
 @layer base {
   body {
-    font-family: "Roboto", sans-serif;
+    font-family: "Poppins", Arial, Helvetica;
     font-optical-sizing: auto;
     background-color: #eef2f3;
     overflow-x: hidden;
