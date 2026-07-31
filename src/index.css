@@ -22,7 +22,7 @@
 
 @layer base {
   body {
-    font-family: "Poppins", Arial, Helvetica;
+    font-family: "Poppins";
     font-optical-sizing: auto;
     background-color: #eef2f3;
     overflow-x: hidden;
