@@ -1,69 +1,146 @@
 import { useNavigate } from "react-router-dom";
-import Reveal from "./Reveal";
-import { useUserContext } from "../Context/Context";
 import { useState } from "react";
+import { useUserContext } from "../Context/Context";
+import Reveal from "./Reveal";
 
-
-const FoodCard =({ foods})=>{
-  const [ added, setAdded ] = useState(false);
-  const [cartQuantity ,setCartQuantity ] = useState(1)
+const FoodCard = ({ foods }) => {
   const navigate = useNavigate();
-  const { setCart } = useUserContext()
+  const { setCart } = useUserContext();
 
-  function handleQuantity(data){
-      if(data === "increment"){
-        setCartQuantity(cartQuantity + 1)
-      } else if ( data === "decrement" && cartQuantity > 1) {
-        setCartQuantity(cartQuantity - 1)
-      }
+  const [added, setAdded] = useState(false);
+  const [cartQuantity, setCartQuantity] = useState(1);
+
+  const handleQuantity = (type) => {
+    if (type === "increment") {
+      setCartQuantity((prev) => prev + 1);
+    } else if (type === "decrement") {
+      setCartQuantity((prev) => (prev > 1 ? prev - 1 : 1));
     }
+  };
 
-  function handleClick(id){
-    navigate(`/ingredient/${id}`)
-  }
+  const handleClick = (id) => {
+    navigate(`/ingredient/${id}`);
+  };
 
-  function addItem(foods){
-    setCart(prevArr=>{
-      const exist = prevArr.find( item => item.id === foods.id)
+  const addItem = (food) => {
+    setCart((prev) => {
+      const exists = prev.find((item) => item.id === food.id);
 
-    if (exist){
-      return prevArr.map(item =>
-        item.id === foods.id
-          ? { ...item, quantity: cartQuantity }
-          : item
-      );
-      } else {
-        // Add new item
-      return [...prevArr, { id: foods.id, quantity: cartQuantity }];
+      if (exists) {
+        return prev.map((item) =>
+          item.id === food.id ? { ...item, quantity: cartQuantity } : item,
+        );
       }
+
+      return [...prev, { id: food.id, quantity: cartQuantity }];
     });
 
-    setAdded(true)
-    setTimeout(()=>setAdded(false),1500);
-  }
+    setAdded(true);
+
+    setTimeout(() => {
+      setAdded(false);
+    }, 1800);
+  };
 
   return (
     <Reveal>
-      <div className="card">
-      <img src={foods?.image} alt={foods.title} className="image" />
-      <div className="w-full flex justify-between flex-col items-center py-3">
-        <p className="text-gray-500 leading-6">{foods.title}</p>
-        <button className="button px-12" onClick={()=>{ handleClick(foods.id)}}>Cook Now</button>
-        <div className="relative flex justify-center items-center bg-orange-500 py-1 px-3 mt-2 rounded-lg text-white font-semibold hover:drop-shadow-orange-800 hover:drop-shadow-lg
-         hover:scale-105 transition-all duration-200">
-          <button className="flex flex-col" onClick={()=>(addItem(foods))}>Order food
-          <span className="text-[10px]">Add to cart</span></button>
-          { added ? <svg className="w-8 h-8 text-orange-500 absolute bottom-3 -right-8" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-          <path fill-rule="evenodd" d="M12 2c-.791 0-1.55.314-2.11.874l-.893.893a.985.985 0 0 1-.696.288H7.04A2.984 2.984 0 0 0 4.055 7.04v1.262a.986.986 0 0 1-.288.696l-.893.893a2.984 2.984 0 0 0 0 4.22l.893.893a.985.985 0 0 1 .288.696v1.262a2.984 2.984 0 0 0 2.984 2.984h1.262c.261 0 .512.104.696.288l.893.893a2.984 2.984 0 0 0 4.22 0l.893-.893a.985.985 0 0 1 .696-.288h1.262a2.984 2.984 0 0 0 2.984-2.984V15.7c0-.261.104-.512.288-.696l.893-.893a2.984 2.984 0 0 0 0-4.22l-.893-.893a.985.985 0 0 1-.288-.696V7.04a2.984 2.984 0 0 0-2.984-2.984h-1.262a.985.985 0 0 1-.696-.288l-.893-.893A2.984 2.984 0 0 0 12 2Zm3.683 7.73a1 1 0 1 0-1.414-1.413l-4.253 4.253-1.277-1.277a1 1 0 0 0-1.415 1.414l1.985 1.984a1 1 0 0 0 1.414 0l4.96-4.96Z" clip-rule="evenodd"/>
-          </svg> : ''}
-          <button className="ml-2 text-2xl cursor-pointer hover:scale-130" onClick={()=>handleQuantity("decrement")}>-</button>
-          <p className="mx-2 cursor-default">{cartQuantity}</p>
-          <button className=" text-2xl cursor-pointer hover:scale-130" onClick={()=>handleQuantity("increment")}>+</button>
+      <div className="group overflow-hidden rounded-3xl bg-white ring-1 ring-gray-200 shadow-lg transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_30px_60px_rgba(0,0,0,0.18)]">
+        {/* IMAGE */}
+        <div className="relative h-60 overflow-hidden">
+          <img
+            src={foods.image}
+            alt={foods.title}
+            className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+          />
+
+          {/* Rating */}
+          <div className="absolute top-4 right-4 rounded-full bg-black/60 px-3 py-1 backdrop-blur-md">
+            <span className="text-sm font-semibold text-white">⭐ 4.8</span>
+          </div>
+
+          {/* Fresh Badge */}
+          <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-sm font-semibold text-orange-600 shadow backdrop-blur">
+            Fresh
+          </div>
+        </div>
+
+        {/* CONTENT */}
+        <div className="relative -mt-6 rounded-t-3xl bg-white p-6">
+          {/* Title */}
+          <h2 className="line-clamp-1 text-2xl font-bold text-gray-900">
+            {foods.title}
+          </h2>
+
+          {/* Description */}
+          <p className="mt-3 line-clamp-2 text-sm leading-6 text-gray-500">
+            Freshly prepared using quality ingredients and crafted to deliver
+            incredible flavor in every bite.
+          </p>
+
+          {/* Info */}
+          <div className="mt-5 flex flex-wrap gap-2">
+            <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-600">
+              ⏱ 20 min
+            </span>
+
+            <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">
+              🍴 Healthy
+            </span>
+          </div>
+
+          {/* Divider */}
+          <div className="my-2 h-px bg-gray-100" />
+
+          {/* Quantity + Add */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => handleQuantity("decrement")}
+                className="flex h-6 w-6 items-center justify-center rounded-full border border-gray-200 text-lg font-bold transition hover:bg-orange-500 hover:text-white cursor-pointer"
+              >
+                −
+              </button>
+
+              <span className="h-6 w-6 text-center text-lg font-bold">
+                {cartQuantity}
+              </span>
+
+              <button
+                onClick={() => handleQuantity("increment")}
+                className="flex h-6 w-6 items-center justify-center rounded-full border border-gray-200 text-lg font-bold transition hover:bg-orange-500 hover:text-white cursor-pointer"
+              >
+                +
+              </button>
+            </div>
+
+            <button
+              onClick={() => addItem(foods)}
+              className="rounded-xl bg-gradient-to-r from-orange-500 to-red-500 px-5 py-1 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-orange-300 cursor-pointer"
+            >
+              Add
+            </button>
+          </div>
+
+          {/* Added Message */}
+          <div className=" h-5">
+            {added && (
+              <p className="animate-pulse text-sm font-medium text-green-600">
+                ✓ Added to cart
+              </p>
+            )}
+          </div>
+
+          {/* View Button */}
+          <button
+            onClick={() => handleClick(foods.id)}
+            className="mt-2 w-full rounded-xl border-2 border-orange-500 py-2 font-semibold text-orange-500 transition-all duration-300 hover:bg-orange-500 hover:text-white"
+          >
+            View Recipe
+          </button>
         </div>
       </div>
-    </div>
     </Reveal>
-  )
-}
+  );
+};
 
 export default FoodCard;

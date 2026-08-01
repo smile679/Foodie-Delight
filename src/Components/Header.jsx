@@ -5,7 +5,7 @@ import { useUserContext } from "../Context/Context";
 const NAV_ITEMS = [
   { label: "Menu", target: "menu" },
   { label: "About", target: "about" },
-  { label: "Contact", target: "contact" },
+  { label: "Contact", target: "contacts" },
 ];
 
 const Header = () => {
@@ -19,10 +19,8 @@ const Header = () => {
 
   function handleNavClick(target) {
     if (location.pathname !== "/") {
-      // navigate home, then scroll once it's mounted
       navigate("/", { state: { scrollTo: target } });
     }
-    // if already on '/', ScrollLink handles the scroll itself
   }
 
   return (

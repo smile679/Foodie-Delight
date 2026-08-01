@@ -4,6 +4,9 @@ import Search from "./Search";
 import Reveal from "./Reveal";
 import FoodList from "./FoodList";
 import Hero from "./Hero";
+import About from "./about";
+import Contact from "./Contacts";
+import Footer from "./Footer";
 
 
 const Home =()=>{
@@ -50,6 +53,9 @@ const Home =()=>{
       <Search query={query} setQuery={setQuery}/>
     </Reveal>
     <FoodList food={food} isLoading={isLoading} error={error}/>
+    <About/>
+    <Contact />
+    <Footer/>
   </div>
 }
 

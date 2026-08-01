@@ -6,9 +6,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 @theme {
-  --color-primary: #030014;
-  --color-secondary: #8399a2;
-  --font-Poppins: 'Poppins';
+  --color-primary: #B84A2C;
+  --color-primary-dark: #8A3620;
+  --color-cream: #FFF8F0;
+  --color-ink: #3A2418;
+  --color-muted: #8A6350;
+
+  --font-Poppins: 'Poppins', sans-serif;
+  --font-display: 'Playfair Display', serif;
 
   --aspect-ratio: 16 / 9;
   --aspect-retro: 4 / 3;
@@ -25,7 +30,7 @@
   body {
     font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;
-    background-color: #eef2f3;
+    background-color: #FFF8F0;
     overflow-x: hidden;
     padding: 0;
     margin: 0;
@@ -55,7 +60,7 @@ li {
 }
 
 @layer components {
-  .hero {
+  /* .hero {
     @apply w-screen py-20 md:py-20 px-5 relative;
   .heroImg {
     @apply absolute top-0 left-0 bottom-0 right-0 z-8 bg-[url(./image/ethiofood.jpg)] bg-cover bg-no-repeat bg-center opacity-50
@@ -65,7 +70,7 @@ li {
       @apply text-orange-950 text-4xl sm:text-5xl font-extrabold text-shadow-gray-500 text-shadow-lg
       sm:flex sm:flex-col text-center pt-2 sm:gap-1 py-10 md:py-5 sm:tracking-widest;
     }
-  }
+  } */
   .card {
     @apply w-full h-[420px] flex flex-col justify-between items-center px-4 py-2 rounded-lg shadow-gray-400 shadow-lg;
 

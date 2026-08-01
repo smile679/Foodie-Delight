@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
 import { useUserContext } from "../Context/Context";
 
+const CartItem = ({ item }) => {
+  const { cart, setCart, handleRemove } = useUserContext();
+  const [quantity, setQuantity] = useState(1);
 
-const CartItem =({ item})=>{
- const { cart,setCart, handleRemove } = useUserContext()
-  const [ quantity, setQuantity] = useState(1);
-
-
-  function handleQuantityChange(type){
-     setCart(prevArr =>
-      prevArr.map(cartItem => {
+  function handleQuantityChange(type) {
+    setCart((prevArr) =>
+      prevArr.map((cartItem) => {
         if (cartItem.id === item.id) {
           let updatedQty = cartItem.quantity;
 
@@ -20,38 +18,66 @@ const CartItem =({ item})=>{
           }
           return { ...cartItem, quantity: updatedQty };
         }
-        
         return cartItem;
-      })
+      }),
     );
   }
-  useEffect(()=>{
-    cart.map((quan)=>{
-      if(quan.id === item.id){
-        setQuantity(quan.quantity)
-      }
-    })
-  },[cart])
- 
-   
-  return <div className="relative flex h-32 md:h-28 p-2 mb-5 rounded-lg shadow-orange-800 shadow-lg">
-       <img src={item.image} alt={item.title} className="w-24 text-sm object-cover rounded-lg"/>
-       <div className="px-6">
-          <h3 className="text-sm font-bold text-orange-950 leading-4 text-pretty">{item.title}</h3>
-          <div className="flex items-center text-orange-950 font-bold gap-x-3">
-            <p className="text-sm text-orange-600 cursor-default">Quantity:</p>
-            <button className="text-lg cursor-pointer hover:scale-130" onClick={()=>handleQuantityChange("decrement")}>-</button>
-            <p className="text-sm text-orange-600 cursor-default">
-              { quantity }
-            </p>
-            <button className="text-lg cursor-pointer hover:scale-130" onClick={()=>handleQuantityChange("increment")}>+</button>
-          </div>
-        <p className="text-sm text-orange-600 font-bold">Price: {(item.pricePerServing/100).toFixed(2)} $</p>
-       </div>
-       <button className="absolute right-0 top-0 font-bold text-white bg-red-600 px-1.5 rounded-sm hover:scale-110"
-       onClick={()=>handleRemove(item.id)}
-       >X</button>
-  </div>
-}
+
+  useEffect(() => {
+    const matched = cart.find((cartItem) => cartItem.id === item.id);
+    if (matched) setQuantity(matched.quantity);
+  }, [cart, item.id]);
+
+  const unitPrice = item.pricePerServing / 100;
+  const lineTotal = unitPrice * quantity;
+
+  return (
+    <div className="relative flex h-32 md:h-28 p-3 bg-white border border-gray-100 rounded-2xl">
+      <img
+        src={item.image}
+        alt={item.title}
+        className="w-24 h-full object-cover rounded-xl flex-shrink-0"
+      />
+      <div className="px-5 flex-1 min-w-0">
+        <h3 className="text-sm font-semibold text-gray-900 leading-snug line-clamp-2">
+          {item.title}
+        </h3>
+
+        <div className="flex items-center gap-3 mt-2">
+          <button
+            className="w-6 h-6 flex items-center justify-center rounded-full border border-gray-200 text-gray-600 text-sm hover:border-orange-500 hover:text-orange-500 transition"
+            onClick={() => handleQuantityChange("decrement")}
+          >
+            −
+          </button>
+          <p className="text-sm font-semibold text-gray-900 w-4 text-center">
+            {quantity}
+          </p>
+          <button
+            className="w-6 h-6 flex items-center justify-center rounded-full border border-gray-200 text-gray-600 text-sm hover:border-orange-500 hover:text-orange-500 transition"
+            onClick={() => handleQuantityChange("increment")}
+          >
+            +
+          </button>
+        </div>
+
+        <p className="text-sm font-semibold text-orange-500 mt-2">
+          ${lineTotal.toFixed(2)}
+          <span className="text-xs text-gray-400 font-normal ml-1">
+            (${unitPrice.toFixed(2)} each)
+          </span>
+        </p>
+      </div>
+
+      <button
+        className="absolute right-3 top-3 w-6 h-6 flex items-center justify-center rounded-full text-gray-400 hover:text-red-500 hover:bg-red-50 transition text-sm"
+        onClick={() => handleRemove(item.id)}
+        aria-label={`Remove ${item.title} from cart`}
+      >
+        ✕
+      </button>
+    </div>
+  );
+};
 
 export default CartItem;
