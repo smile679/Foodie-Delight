@@ -4,7 +4,7 @@ import Search from "./Search";
 import Reveal from "./Reveal";
 import FoodList from "./FoodList";
 import Hero from "./Hero";
-import About from "./about";
+import About from "./About";
 import Contact from "./Contacts";
 import Footer from "./Footer";
 
