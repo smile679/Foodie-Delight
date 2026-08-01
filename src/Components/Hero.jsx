@@ -6,7 +6,7 @@ import Reveal from './Reveal'
 const Hero = () =>{
 
   return (
-    <section id="hero" className="relative w-screen md:py-20 px-5 min-h-screen">
+    <section id="home" className="relative w-screen md:py-20 px-5 min-h-screen">
       <div
         className="absolute top-0 left-0 bottom-0 right-0 z-8 bg-[url(./image/ethiofood.jpg)] bg-cover bg-no-repeat bg-center opacity-50
     shadow-orange-500 shadow-md"

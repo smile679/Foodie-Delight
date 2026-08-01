@@ -14,11 +14,11 @@ const Footer = () => {
           </p>
         </div>
 
-        <div>
+        <div className="hidden sm:flex">
           <p className="text-white font-semibold text-sm mb-3">Quick links</p>
           <div className="flex flex-col gap-2">
             <ScrollLink
-              to="hero"
+              to="home"
               smooth={true}
               duration={500}
               offset={-70}
