@@ -3,6 +3,7 @@ import { Link as ScrollLink } from "react-scroll";
 import { useUserContext } from "../Context/Context";
 
 const NAV_ITEMS = [
+  { label: "Home", target: "home" },
   { label: "Menu", target: "menu" },
   { label: "About", target: "about" },
   { label: "Contact", target: "contacts" },
